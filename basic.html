@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My chat App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+  </head>
+  <body>
+    <script>
+      // get io object from global cdn file
+      const socket = io('http://localhost:7600');
+
+      //   socket.on('connect', () => {
+      //     console.log('New connection made on client side');
+      //   });
+
+      socket.on('welcome', (data) => {
+        console.log('welcome : ', data);
+      });
+
+      socket.emit('message', 'Hello server side code');
+    </script>
+  </body>
+</html>
